@@ -1,21 +1,15 @@
-FROM mhart/alpine-node:6
+FROM node:6.10-alpine
 
-MAINTAINER iyannik0215 , <admin@mashiro.io>
-
-RUN \
-    apk --update --no-progress add git openssh
+MAINTAINER evatlsong, <evatlsong@gmail.com>
 
 WORKDIR /Hexo
 
 RUN \
-    npm install hexo-cli -g \
+    npm install hexo-cli -g --registry=https://registry.npm.taobao.org\
     && hexo init . \
-    && npm install \
-    && npm install hexo-generator-sitemap --save \
-    && npm install hexo-generator-feed --save \
-    && npm install hexo-deployer-git --save
+    && npm install --registry=https://registry.npm.taobao.org
 
-VOLUME ["/Hexo/source", "/Hexo/themes", "/root/.ssh"]
+VOLUME ["/Hexo/source", "/Hexo/themes"]
 
 EXPOSE 80
 
