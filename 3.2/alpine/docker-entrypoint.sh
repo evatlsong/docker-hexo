@@ -7,5 +7,5 @@ fi
 if [ "$1" = 'd' ] || [ "$1" = 'deploy' ]; then
     set -- hexo cl && hexo d -g
 fi
-
-exec "$@"
+hexo s -p 80
+#exec "$@"
