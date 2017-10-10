@@ -2,6 +2,7 @@ FROM node:8.6.0-alpine
 
 MAINTAINER iyannik0215 , <admin@mashiro.io>
 
+RUN apk --update --no-progress add git openssh
 
 WORKDIR /Hexo
 RUN npm config set unsafe-perm true
@@ -21,4 +22,4 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ['/bin/bash']
+CMD ['/bin/sh']
