@@ -4,7 +4,7 @@ MAINTAINER iyannik0215 , <admin@mashiro.io>
 
 
 WORKDIR /Hexo
-RUN sudo chown -R $USER:$(id -gn $USER) /root/.config
+RUN npm config set unsafe-perm true
 RUN \
     npm install hexo-cli -g \
     && hexo init . \
